@@ -233,7 +233,6 @@ kill <PID>`}</CodeBlock>
               <ul style={styles.ul}>
                 <li>Shipping repeatedly</li>
                 <li>Understanding modern tooling</li>
-                <li>Building credibility as a design leader who codes</li>
               </ul>
               <p style={styles.p}>
                 The infrastructure now works. Future work becomes iteration, not setup.
