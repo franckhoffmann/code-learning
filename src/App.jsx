@@ -2,83 +2,161 @@ export default function App() {
   return (
     <div style={styles.page}>
       <main style={styles.container}>
-        <header style={styles.header}>
-          <h1 style={styles.h1}>Code Learning</h1>
-          <p style={styles.subhead}>Small shipped experiments, building toward a portfolio.</p>
-        </header>
+        <div style={styles.layout}>
+          {/* LEFT */}
+          <section style={styles.left}>
+            <header style={styles.header}>
+              <h1 style={styles.h1}>Code Learning</h1>
+              <p style={styles.subhead}>
+                Small shipped experiments, building toward a portfolio.
+              </p>
+            </header>
 
-        <section style={styles.grid}>
-          <article style={styles.card}>
-            <div style={styles.cardTop}>
-              <div>
-                <h2 style={styles.name}>Franck Hoffmann</h2>
-                <p style={styles.meta}>Director of Product Design</p>
-                <p style={styles.meta}>Tekmetric</p>
-              </div>
-
-              <a
-                href="https://www.linkedin.com/in/franckhoffmann/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn profile"
-                title="LinkedIn"
-                style={styles.iconButton}
-              >
-                <LinkedInIcon />
-              </a>
-            </div>
-
-            <footer style={styles.footer}>
-              <span style={styles.badge}>V1</span>
-              <span style={styles.footerText}>Deployed via GitHub Pages</span>
-            </footer>
-          </article>
-        </section>
-
-        <section style={styles.section}>
-          <div style={styles.sectionHeader}>
-            <h2 style={styles.h2}>Shipped Experiments</h2>
-            <p style={styles.sectionSubhead}>
-              Each item is a small, finished artifact. The goal is reps and proof of shipping.
-            </p>
-          </div>
-
-          <div style={styles.projectsGrid}>
-            {PROJECTS.map((p) => (
-              <article key={p.title} style={styles.projectCard}>
-                <div style={styles.projectTop}>
-                  <div>
-                    <h3 style={styles.h3}>{p.title}</h3>
-                    <p style={styles.projectDesc}>{p.description}</p>
-                  </div>
-                  <span style={styles.projectTag}>{p.tag}</span>
+            <article style={styles.card}>
+              <div style={styles.cardTop}>
+                <div>
+                  <h2 style={styles.name}>Franck Hoffmann</h2>
+                  <p style={styles.meta}>Director of Product Design</p>
+                  <p style={styles.meta}>Tekmetric</p>
                 </div>
 
-                <ul style={styles.projectList}>
-                  {p.proves.map((line) => (
-                    <li key={line} style={styles.projectListItem}>
-                      {line}
-                    </li>
-                  ))}
-                </ul>
+                <a
+                  href="https://www.linkedin.com/in/franckhoffmann/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn profile"
+                  title="LinkedIn"
+                  style={styles.iconButton}
+                >
+                  <LinkedInIcon />
+                </a>
+              </div>
 
-                <div style={styles.projectLinks}>
-                  {p.links.map((l) => (
+              <footer style={styles.footer}>
+                <span style={styles.badge}>V1</span>
+                <span style={styles.footerText}>Deployed via GitHub Pages</span>
+              </footer>
+            </article>
+          </section>
+
+          {/* RIGHT */}
+          <aside style={styles.right}>
+            <h2 style={styles.rightTitle}>Code Learning - Day 1</h2>
+            <p style={styles.rightSubhead}>
+              What I shipped, what I learned, and why this repo exists.
+            </p>
+
+            <div style={styles.notesCard}>
+              <section style={styles.noteSection}>
+                <h3 style={styles.h3}>Objective</h3>
+                <p style={styles.p}>
+                  Set up a modern frontend workflow from scratch and deploy a live React app using GitHub.
+                </p>
+              </section>
+
+              <section style={styles.noteSection}>
+                <h3 style={styles.h3}>What I Built</h3>
+                <ul style={styles.ul}>
+                  <li>A React + Vite project</li>
+                  <li>A simple profile card homepage</li>
+                  <li>Automatic deployment to GitHub Pages using GitHub Actions</li>
+                  <li>
+                    A live production URL:{" "}
                     <a
-                      key={l.label}
-                      href={l.href}
+                      href="https://franckhoffmann.github.io/code-learning/"
                       target="_blank"
                       rel="noreferrer"
                       style={styles.link}
                     >
-                      {l.label} <span aria-hidden="true">↗</span>
+                      https://franckhoffmann.github.io/code-learning/
                     </a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                  </li>
+                </ul>
+              </section>
+
+              <section style={styles.noteSection}>
+                <h3 style={styles.h3}>Core Concepts I Learned</h3>
+
+                <h4 style={styles.h4}>1. Local Development Loop</h4>
+                <p style={styles.p}>
+                  Edit → Save → Dev Server → Browser → Commit → Push → Deploy
+                </p>
+                <p style={styles.p}>
+                  Key command: <code style={styles.inlineCode}>npm run dev</code>
+                </p>
+                <p style={styles.p}>
+                  Default dev URL: <code style={styles.inlineCode}>http://localhost:5173/</code>
+                </p>
+                <ul style={styles.ul}>
+                  <li>If port 5173 is in use, Vite auto-increments (5174, 5175, etc.).</li>
+                  <li>Stop the server with <code style={styles.inlineCode}>Control + C</code>.</li>
+                </ul>
+                <p style={styles.p}>Check port usage:</p>
+                <pre style={styles.pre}>
+                  <code>{`lsof -nP -iTCP:5173 -sTCP:LISTEN`}</code>
+                </pre>
+                <p style={styles.p}>Kill process:</p>
+                <pre style={styles.pre}>
+                  <code>{`kill <PID>`}</code>
+                </pre>
+
+                <h4 style={styles.h4}>2. Project Structure (React + Vite)</h4>
+                <ul style={styles.ul}>
+                  <li><code style={styles.inlineCode}>src/App.jsx</code> → Main React component</li>
+                  <li><code style={styles.inlineCode}>vite.config.js</code> → Build configuration</li>
+                  <li><code style={styles.inlineCode}>package.json</code> → Scripts + dependencies</li>
+                  <li><code style={styles.inlineCode}>.gitignore</code> → Keeps node_modules out of Git</li>
+                  <li><code style={styles.inlineCode}>.github/workflows/deploy.yml</code> → CI/CD pipeline</li>
+                </ul>
+                <p style={styles.p}>
+                  Vite builds to <code style={styles.inlineCode}>dist/</code>. Do not commit dist. Actions builds it.
+                </p>
+
+                <h4 style={styles.h4}>3. Git + GitHub Auth</h4>
+                <p style={styles.p}>
+                  GitHub doesn’t allow password auth for HTTPS pushes. Use Personal Access Token, SSH, or GitHub Desktop.
+                </p>
+
+                <h4 style={styles.h4}>4. CI/CD with GitHub Actions</h4>
+                <p style={styles.p}>
+                  <code style={styles.inlineCode}>main</code> = source, Actions builds, Pages serves the built output.
+                </p>
+                <p style={styles.p}>
+                  Enabled: <strong>Settings → Pages → Source → GitHub Actions</strong>
+                </p>
+
+                <h4 style={styles.h4}>5. Vite Base Path</h4>
+                <p style={styles.p}>
+                  Pages serves under <code style={styles.inlineCode}>/code-learning/</code>, so build uses:
+                </p>
+                <pre style={styles.pre}>
+                  <code>{`base: command === 'build' ? '/code-learning/' : '/'`}</code>
+                </pre>
+
+                <h4 style={styles.h4}>Key Commands Used</h4>
+                <pre style={styles.pre}>
+                  <code>{`node -v
+npm -v
+npm run dev
+npm run build
+git status
+git add .
+git commit -m "message"
+lsof -nP -iTCP:5173 -sTCP:LISTEN
+kill <PID>`}</code>
+                </pre>
+              </section>
+
+              <section style={{ ...styles.noteSection, borderBottom: "none", paddingBottom: 0 }}>
+                <h3 style={styles.h3}>Strategic Takeaway</h3>
+                <p style={styles.p}>
+                  This repo is about shipping repeatedly, understanding modern tooling, and building credibility as a design leader who codes.
+                  The infrastructure now works. Future work becomes iteration, not setup.
+                </p>
+              </section>
+            </div>
+          </aside>
+        </div>
       </main>
     </div>
   )
@@ -92,94 +170,41 @@ function LinkedInIcon() {
   )
 }
 
-const PROJECTS = [
-  {
-    title: "Profile card + GitHub Pages deploy",
-    tag: "V1",
-    description: "A minimal React page deployed via GitHub Actions to GitHub Pages.",
-    proves: [
-      "React component structure",
-      "Inline styling + layout primitives",
-      "Deploy pipeline (Actions → Pages)",
-    ],
-    links: [
-      {
-        label: "Repo",
-        href: "https://github.com/franckhoffmann/code-learning",
-      },
-      // Optional: replace this with a specific commit URL later
-      {
-        label: "Live",
-        href: "https://franckhoffmann.github.io/code-learning/",
-      },
-    ],
-  },
-  {
-    title: "Next: Experiment card system",
-    tag: "Planned",
-    description: "Turn this site into a small evidence log with repeatable cards and links.",
-    proves: ["Data-driven rendering (arrays → UI)", "Basic content hierarchy"],
-    links: [
-      {
-        label: "Issue (create one)",
-        href: "https://github.com/franckhoffmann/code-learning/issues",
-      },
-    ],
-  },
-]
-
-const t = {
-  bg: "#0b0f17",
-  text: "#e8edf7",
-  muted: "#a9b3c7",
-  cardBg: "rgba(255,255,255,0.04)",
-  border: "rgba(255,255,255,0.10)",
-  borderSoft: "rgba(255,255,255,0.08)",
-  shadow: "0 10px 30px rgba(0,0,0,0.35)",
-  rLg: 16,
-  rMd: 12,
-  max: 980,
-}
-
 const styles = {
   page: {
     minHeight: "100vh",
-    background: t.bg,
-    color: t.text,
+    background: "#0b0f17",
+    color: "#e8edf7",
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"',
   },
   container: {
-    maxWidth: t.max,
+    maxWidth: 1200,
     margin: "0 auto",
     padding: "64px 20px",
   },
-  header: {
-    marginBottom: 28,
-  },
-  h1: {
-    margin: 0,
-    fontSize: 28,
-    letterSpacing: "-0.02em",
-  },
-  subhead: {
-    margin: "10px 0 0 0",
-    color: t.muted,
-    lineHeight: 1.4,
-    maxWidth: 560,
-  },
 
-  grid: {
+  // Layout
+  layout: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 16,
+    gridTemplateColumns: "420px 1fr",
+    gap: 22,
+    alignItems: "start",
   },
+  left: {},
+  right: {},
+
+  // Left header + card
+  header: { marginBottom: 18 },
+  h1: { margin: 0, fontSize: 28, letterSpacing: "-0.02em" },
+  subhead: { margin: "10px 0 0 0", color: "#a9b3c7", lineHeight: 1.4, fontSize: 14 },
+
   card: {
-    background: t.cardBg,
-    border: `1px solid ${t.borderSoft}`,
-    borderRadius: t.rLg,
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: 16,
     padding: 18,
-    boxShadow: t.shadow,
+    boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
   },
   cardTop: {
     display: "flex",
@@ -187,32 +212,24 @@ const styles = {
     justifyContent: "space-between",
     gap: 12,
   },
-  name: {
-    margin: 0,
-    fontSize: 18,
-    letterSpacing: "-0.01em",
-  },
-  meta: {
-    margin: "6px 0 0 0",
-    color: t.muted,
-    fontSize: 14,
-  },
+  name: { margin: 0, fontSize: 18, letterSpacing: "-0.01em" },
+  meta: { margin: "6px 0 0 0", color: "#a9b3c7", fontSize: 14 },
   iconButton: {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     width: 40,
     height: 40,
-    borderRadius: t.rMd,
-    border: `1px solid ${t.border}`,
+    borderRadius: 12,
+    border: "1px solid rgba(255,255,255,0.12)",
     background: "rgba(255,255,255,0.03)",
-    color: t.text,
+    color: "#e8edf7",
     textDecoration: "none",
   },
   footer: {
     marginTop: 16,
     paddingTop: 14,
-    borderTop: `1px solid ${t.borderSoft}`,
+    borderTop: "1px solid rgba(255,255,255,0.08)",
     display: "flex",
     alignItems: "center",
     gap: 10,
@@ -221,104 +238,54 @@ const styles = {
     fontSize: 12,
     padding: "4px 8px",
     borderRadius: 999,
-    border: `1px solid ${t.border}`,
+    border: "1px solid rgba(255,255,255,0.12)",
     background: "rgba(255,255,255,0.03)",
     color: "#c9d3e8",
-    whiteSpace: "nowrap",
   },
-  footerText: {
-    fontSize: 12,
-    color: t.muted,
-  },
+  footerText: { fontSize: 12, color: "#a9b3c7" },
 
-  section: {
-    marginTop: 28,
-  },
-  sectionHeader: {
-    marginBottom: 12,
-  },
-  h2: {
-    margin: 0,
-    fontSize: 16,
-    letterSpacing: "-0.01em",
-  },
-  sectionSubhead: {
-    margin: "8px 0 0 0",
-    color: t.muted,
-    fontSize: 14,
-    lineHeight: 1.5,
-    maxWidth: 720,
-  },
+  // Right notes
+  rightTitle: { margin: 0, fontSize: 18, letterSpacing: "-0.01em" },
+  rightSubhead: { margin: "8px 0 14px 0", color: "#a9b3c7", fontSize: 14, lineHeight: 1.5 },
 
-  projectsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-    gap: 16,
-    marginTop: 16,
-  },
-  projectCard: {
-    background: t.cardBg,
-    border: `1px solid ${t.borderSoft}`,
-    borderRadius: t.rLg,
+  notesCard: {
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: 16,
     padding: 18,
-    boxShadow: t.shadow,
+    boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
   },
-  projectTop: {
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    gap: 12,
+  noteSection: {
+    marginBottom: 16,
+    paddingBottom: 14,
+    borderBottom: "1px solid rgba(255,255,255,0.08)",
   },
-  h3: {
-    margin: 0,
-    fontSize: 15,
-    letterSpacing: "-0.01em",
-  },
-  projectDesc: {
-    margin: "8px 0 0 0",
-    color: t.muted,
-    fontSize: 14,
-    lineHeight: 1.5,
-  },
-  projectTag: {
-    fontSize: 12,
-    padding: "4px 8px",
-    borderRadius: 999,
-    border: `1px solid ${t.border}`,
-    background: "rgba(255,255,255,0.03)",
-    color: "#c9d3e8",
-    whiteSpace: "nowrap",
-    marginTop: 2,
-  },
-  projectList: {
-    margin: "14px 0 0 0",
-    padding: "0 0 0 18px",
-    color: t.text,
-  },
-  projectListItem: {
-    margin: "6px 0",
-    color: t.muted,
+
+  h3: { margin: "0 0 10px 0", fontSize: 14, color: "#e8edf7" },
+  h4: { margin: "14px 0 8px 0", fontSize: 13, color: "#c9d3e8" },
+  p: { margin: "0 0 10px 0", color: "#a9b3c7", lineHeight: 1.6, fontSize: 14 },
+  ul: { margin: "0 0 10px 18px", padding: 0, color: "#a9b3c7", lineHeight: 1.6, fontSize: 14 },
+
+  pre: {
+    margin: "0 0 10px 0",
+    padding: "12px 12px",
+    borderRadius: 12,
+    border: "1px solid rgba(255,255,255,0.10)",
+    background: "rgba(0,0,0,0.25)",
+    overflowX: "auto",
+    color: "#e8edf7",
     fontSize: 13,
     lineHeight: 1.5,
   },
-  projectLinks: {
-    marginTop: 14,
-    paddingTop: 12,
-    borderTop: `1px solid ${t.borderSoft}`,
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 10,
+  inlineCode: {
+    fontFamily:
+      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    fontSize: "0.95em",
+    padding: "2px 6px",
+    borderRadius: 8,
+    border: "1px solid rgba(255,255,255,0.10)",
+    background: "rgba(0,0,0,0.18)",
+    color: "#e8edf7",
   },
-  link: {
-    display: "inline-flex",
-    gap: 6,
-    alignItems: "center",
-    fontSize: 13,
-    color: t.text,
-    textDecoration: "none",
-    border: `1px solid ${t.border}`,
-    background: "rgba(255,255,255,0.03)",
-    padding: "6px 10px",
-    borderRadius: 999,
-  },
+  link: { color: "#c9d3e8", textDecoration: "underline", textUnderlineOffset: 3 },
 }
