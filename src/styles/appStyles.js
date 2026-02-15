@@ -219,4 +219,12 @@ export const styles = {
     background: "rgba(255,255,255,0.08)",
     width: "100%",
   },
+  repoLink: {
+  marginLeft: "auto",
+  fontSize: 12,
+  color: "#c9d3e8",
+  textDecoration: "underline",
+  textUnderlineOffset: 3,
+},
+
 };
