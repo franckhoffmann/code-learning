@@ -1,13 +1,14 @@
 import { styles } from "../styles/appStyles";
 import { LinkedInIcon } from "./icons/LinkedInIcon";
 
-
 export function LeftPanel() {
   return (
     <aside className="leftPanel" style={styles.left}>
       <header style={styles.header}>
         <h1 style={styles.h1}>Code Learning</h1>
-        <p style={styles.subhead}>Small shipped experiments, building toward a portfolio.</p>
+        <p style={styles.subhead}>
+          Small shipped experiments, building toward a portfolio.
+        </p>
       </header>
 
       <section style={styles.grid}>
@@ -34,14 +35,14 @@ export function LeftPanel() {
           <footer style={styles.footer}>
             <span style={styles.badge}>V1</span>
             <span style={styles.footerText}>Deployed via GitHub Pages</span>
-              <a
-    href="https://github.com/franckhoffmann/code-learning"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={styles.repoLink}
-  >
-    Repo ↗
-  </a>
+            <a
+              href="https://github.com/franckhoffmann/code-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.repoLink}
+            >
+              Repo ↗
+            </a>
           </footer>
         </article>
       </section>

@@ -6,7 +6,6 @@ import { RightPanel } from "./components/RightPanel";
 import { days } from "./data/days";
 import { DaysNav } from "./components/DaysNav";
 
-
 export default function App() {
   const [selectedDayId, setSelectedDayId] = useState(days[0].id);
 
@@ -23,19 +22,18 @@ export default function App() {
           onSelectDay={setSelectedDayId}
         />
         <div style={styles.rightColumn}>
-  <div style={styles.rightTop}>
-    <DaysNav
-      days={days}
-      selectedDayId={selectedDayId}
-      onSelectDay={setSelectedDayId}
-    />
-  </div>
+          <div style={styles.rightTop}>
+            <DaysNav
+              days={days}
+              selectedDayId={selectedDayId}
+              onSelectDay={setSelectedDayId}
+            />
+          </div>
 
-  <div style={styles.rightRule} />
+          <div style={styles.rightRule} />
 
-  <RightPanel day={selectedDay} />
-</div>
-
+          <RightPanel day={selectedDay} />
+        </div>
       </div>
     </div>
   );
