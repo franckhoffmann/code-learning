@@ -183,6 +183,85 @@ export const days = [
   title: "Code Learning — Day 2",
   sections: [
     {
+  heading: "Reviewed Concepts",
+  blocks: [
+    {
+      type: "p",
+      text:
+        "Before expanding the architecture, I reviewed the full runtime and deployment mental model to ensure conceptual clarity.",
+    },
+
+    { type: "h3", text: "Right now, focusing on:" },
+    {
+      type: "ul",
+      items: [
+        "What is Node?",
+        "What is npm actually doing?",
+        "What is Vite doing when you run npm run dev?",
+        "What does git add vs git commit vs git push really mean?",
+        "What is a build artifact?",
+      ],
+    },
+
+    { type: "divider" },
+
+    { type: "h3", text: "If this feels clean, I now understand:" },
+    {
+      type: "ul",
+      items: [
+        "Node runs JavaScript.",
+        "npm installs packages and runs scripts.",
+        "Vite serves in dev and builds in production.",
+        "A build artifact is the generated output.",
+        "Git tracks snapshots in controlled stages.",
+      ],
+    },
+
+    { type: "divider" },
+
+    { type: "h3", text: "Runtime / Tooling" },
+    {
+      type: "ul",
+      items: [
+        "Node — Runs JavaScript on your machine (outside the browser).",
+        "npm — Installs packages and runs scripts from package.json.",
+        "Vite (dev) — Local server, transforms JSX in memory, hot reload.",
+        "Vite (build) — Bundles + optimizes, creates dist/.",
+        "Build artifact — Generated output (dist/). Disposable. Deployable.",
+      ],
+    },
+
+    { type: "divider" },
+
+    { type: "h3", text: "Git Flow" },
+    {
+      type: "ul",
+      items: [
+        "Working Directory → git add → Staging Area",
+        "Staging Area → git commit → Local snapshot",
+        "Local snapshot → git push → GitHub",
+        "Commit = snapshot of staged state.",
+        "Push = upload commits.",
+        "Unstaged changes are ignored.",
+      ],
+    },
+
+    { type: "divider" },
+
+    { type: "h3", text: "Full System Flow" },
+    {
+      type: "ul",
+      items: [
+        "Edit code → git push",
+        "CI runs npm run build",
+        "Deploy dist/",
+        "Browser loads optimized files",
+      ],
+    },
+  ],
+},
+
+    {
       heading: "Objective",
       blocks: [
         {
