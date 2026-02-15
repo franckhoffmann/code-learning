@@ -6,9 +6,7 @@ export function LeftPanel() {
     <aside className="leftPanel" style={styles.left}>
       <header style={styles.header}>
         <h1 style={styles.h1}>Code Learning</h1>
-        <p style={styles.subhead}>
-          Small shipped experiments, building toward a portfolio.
-        </p>
+        <p style={styles.subhead}>Small shipped experiments.</p>
       </header>
 
       <section style={styles.grid}>
